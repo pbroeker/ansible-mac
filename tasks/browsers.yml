@@ -1,0 +1,12 @@
+- name: install chrome
+  - homebrew_cask:
+    name: google-chrome
+    state: latest
+  tags: 
+  - browsers
+- name: install firefox
+  - homebrew_cask:
+    name: firefox
+    state: latest
+  tags: 
+  - browsers

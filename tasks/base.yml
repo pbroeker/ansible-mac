@@ -1,0 +1,50 @@
+- name: Install node
+  apt:
+    name: ['nodejs', 'npm']
+    tags:
+    - always
+- name: Install ohMyZsh
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+  tags:
+    - ohmzsh
+- name: Install zsh autocompletion
+  ansible.builtin.git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
+    dest: ~/.oh-my-zsh/plugins/zsh-autosuggestions 
+  tags:
+  - ohmzsh
+- name: Install n
+  npm:
+    name: n
+    global: true
+  tags:
+  - node
+- name: n 14
+  shell: n 14
+  tags: 
+  - node
+- name: install git
+  homebrew: 
+    name: git
+    state: latest
+  tags:
+  - always
+- name: Install rbenv
+  homebrew:
+    name: rbenv
+    state: present
+    update_homebrew: yes
+  tags:
+  - always
+- name: install dropbox
+  - homebrew_cask:
+    name: dropbox
+    state: latest
+  tags: 
+  - dropbox
+- name: install docker
+  - homebrew_cask:
+    name: docker
+    state: latest
+  tags: 
+  - docker

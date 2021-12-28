@@ -1,0 +1,6 @@
+- name: install vsCode
+  homebrew_cask: 
+    name: visual-studio-code
+    state: latest
+  tags:
+  - vscode

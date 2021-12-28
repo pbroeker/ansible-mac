@@ -1,0 +1,28 @@
+hosts: localhost
+become: true
+pre-tasks:
+  - name: Update cache
+  apt: 
+    update_cache: true
+  tags:
+  - always
+  - ohmzsh
+  - vscode
+  - node
+  - dropbox
+  - docker
+  - browsers
+  - slack
+tasks:
+- include: tasks/base.yml
+- include: tasks/else.yml
+- include: tasks/browsers.yml
+- include: tasks/web_dev.yml
+
+
+
+
+
+
+
+  
